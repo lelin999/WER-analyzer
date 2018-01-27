@@ -4,6 +4,7 @@ const mtgParser = require('mtg-tourney-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const fs = require('fs');
+// const dataRetrieved = require('./data.js')
 
 const app = express();
 app.use((req, res, next) => {
@@ -18,7 +19,7 @@ app.use(bodyParser.json());
 let dataRetrieved;
 
 //separate data file
-mtgParser(path.join(__dirname, 'docs/Round-1.pdf'), (err, data, round) => {
+mtgParser(path.join(__dirname, 'docs/Round-2.pdf'), (err, data, round) => {
   if (err) console.error(err);
   dataRetrieved = data;
   console.log(round, 'round');
@@ -37,8 +38,13 @@ app.listen(app.get('port'), () => {
   console.log('running on port', app.get('port'))
 });
 
+//because headers are being mapped and there are two "DCI" categories, second overwrites first one
+//spacing between name and DCI can account for bugs
+
 //account for names too long for pairings
 //account for byes
+
+//cannot gitignore this mtg module because of changes
 
 //manually scrape off each line to find relevant information
 

@@ -38,70 +38,9 @@ app.listen(app.get('port'), () => {
   console.log('running on port', app.get('port'))
 });
 
-//because headers are being mapped and there are two "DCI" categories, second overwrites first one
 //spacing between name and DCI can account for bugs
 
 //account for names too long for pairings
 //account for byes
 
 //cannot gitignore this mtg module because of changes
-
-//manually scrape off each line to find relevant information
-
-// let playerObject = {
-//     "One, Player": {
-//         name: "One, Player",
-//         dci: 11111111,
-//         points: 0,
-//         event: '',
-//         FBID: '',
-//         currMatchInfo: {
-//             oppData,
-//             tableData
-//         }
-//     },
-//     "Two, Player": {}
-// }
-// let tableData = {
-// }
-// // Company: CFB/SCG/Eudo
-// // Event: GP San Jose
-// // Modern Win-A-Box: 3, GP San Jose Main Event.
-// let roundData = {
-//     p1: {
-//         opp: p2,
-//         tableNum: 1,
-//         playerDCI: 11111111,
-//         playerPoints: 0,
-//         oppDCI: 22222222,
-//         oppPoints: 0,
-//         BYE: false
-//     },
-//     p2: {
-//     },
-//     p3: {},
-//     p9: {
-//         opp: '',
-//         tableNum: '',
-//         playerDCI: 99999999,
-//         playerPoints: 0,
-//         oppDCI: '',
-//         oppPoints: '',
-//         BYE: true
-//     }
-// }
-
-// let db = {
-//     CFB: {
-//         events: {
-//             "GP San Jose": {
-//                 eventInfo: {},
-//                 playerList: playerObject,
-//                 roundData: [
-//                     round1, round2, round3
-//                 ]
-//             }
-//         }
-//     },
-//     SCG: {}
-// }

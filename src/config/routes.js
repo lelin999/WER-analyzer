@@ -1,25 +1,31 @@
-// require all controllers:
-let projects = require('../controllers/projects');
-let users = require('../controllers/users');
+// let data = require('./data.js');
 
-module.exports = app => {
-    // READ ALL
-    app.get('/projects/all', function(req, res) {
-        projects.allProjects(req, res);
-    })
+let mongoose = require('mongoose');
+let Player = mongoose.model('Player');
+let Table = mongoose.model('Table');
+let Round = mongoose.model('Round');
 
-    app.get('/users', function(req, res) {
-        users.allUsers(req, res);
+module.exports = (app) => {
+// READ ALL
+  app.get('/tables/all', function(req, res) {
+    Table.find({}, (err, tables) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(tables);
+      }
     })
+  })
 
-    app.get('/users/:id', function(req, res) {
-        users.userAllProjects(req, res);
-    })
+  app.get('/users', function(req, res) {
+    users.allUsers(req, res);
+  })
+
+  app.get('/users/:id', function(req, res) {
+    users.userAllProjects(req, res);
+  })
 }
 
-// var mongoose = require('mongoose');
-// // get mongoose model for projects:
-// var Project = mongoose.model('Project');
 
 // module.exports = {
 //   allProjects: function(req, res){

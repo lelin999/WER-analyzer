@@ -1,18 +1,18 @@
 let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
 // create mongoose schema for projects:
 let RoundSchema = new mongoose.Schema({
     round: { type: Number, required: true },
-    player: { 
-      //needs relational association
-      opp: { type: String },
-      table: { type: Number },
-      DCI: { type: Number },
-
-     },
-
+    eventName: { type: String },
+    company: { type: String },
+    date: { type: Date },
+    pairings: [{ type: Schema.Types.ObjectId, ref: 'Table' }]
 }, { timestamps: true });
 // use mongoose schema to set new mongoose model:
 mongoose.model('Round', RoundSchema);
+
+
+// with round #, event name, date, and an array of ids which is the pairings
 
 // // Company: CFB/SCG/Eudo
 // // Event: GP San Jose

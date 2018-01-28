@@ -1,15 +1,14 @@
 let mongoose = require('mongoose');
 // create mongoose schema for projects:
 let PlayerSchema = new mongoose.Schema({
-    _user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    userName: { type: String },
-    name: { type: String, required: true },
-    description: { type: String },
-    github: { type: String } 
+    name: { type: String, required: true},
+    DCI: { type: Number, required: true },
+    facebookId: { type: String }
 }, { timestamps: true });
 // use mongoose schema to set new mongoose model:
 mongoose.model('Player', PlayerSchema);
 
+//collection 1 : all players
 
 // let playerObject = {
 //     "One, Player": {
@@ -18,14 +17,12 @@ mongoose.model('Player', PlayerSchema);
 //         points: 0,
 //         event: '',
 //         FBID: '',
-//         currMatchInfo: {
+//         currMatchInfo: { ?????????
 //             oppData,
 //             tableData
 //         }
 //     },
 //     "Two, Player": {}
-// }
-// let tableData = {
 // }
 
 // let db = {
